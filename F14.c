@@ -2,13 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 int main(int argc, char *argv[])
 {
     FILE *fin;
     int index = 0, count = 0, indin = -1, indsf = -1, indinv = -1, indsfv = -1;
     char *pos;
-    size_t nread;
+    size_t nread, iread;
     if (argc != 3)
     {
         fprintf(stderr, "Utilizare: %s sir fisier\n", argv[0]);
@@ -44,8 +43,8 @@ int main(int argc, char *argv[])
         fclose(fin);
         return 2;
     }
-    fread(txt3, 1, strlen(argv[1]), fin);
-    while ((nread = fread(txt2, 1, strlen(argv[1]), fin)) > 0)
+    iread = fread(txt3, 1, strlen(argv[1]), fin);
+    while ((nread = fread(txt2, 1, strlen(argv[1]), fin)) > 0 || iread > 0)
     {
         strcpy(txt1, txt3);
         strcat(txt1, txt2);
@@ -61,6 +60,7 @@ int main(int argc, char *argv[])
         indinv = indin;
         indsfv = indsf;
         strcpy(txt3, txt2);
+        iread = 0;
     }
     printf("De %d ori in fisier\n", count);
     free(txt1);

@@ -10,7 +10,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/F14",
-            "args": ["ana","test.txt"],
+            "args": ["a","test.txt"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
