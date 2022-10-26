@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
         return 2;
     }
     iread = fread(txt3, 1, strlen(argv[1]), fin);
-    while ((nread = fread(txt2, 1, strlen(argv[1]), fin)) > 0 || iread > 0)
+    while (((nread = fread(txt2, 1, strlen(argv[1]), fin)) > 0) || (iread > 0))
     {
         strcpy(txt1, txt3);
         strcat(txt1, txt2);
